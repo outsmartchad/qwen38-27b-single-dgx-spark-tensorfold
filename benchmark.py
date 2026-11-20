@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Measure localhost Nemotron streaming, then time two unique retrieval prompts."""
+"""Measure localhost model streaming and fresh-prompt retrieval."""
 import concurrent.futures
 import hashlib
 import json
@@ -11,8 +11,13 @@ import sys
 import tempfile
 import threading
 import time
+from urllib.parse import urlsplit
 
-BASE_URL = os.environ["SPARK_BENCHMARK_URL"]
+BASE_URL = os.environ["SPARK_BENCHMARK_URL"].rstrip("/")
+base_url = urlsplit(BASE_URL)
+if (base_url.scheme != "http" or base_url.hostname not in ("127.0.0.1", "::1")
+        or base_url.username or base_url.path or base_url.query or base_url.fragment):
+    raise ValueError("SPARK_BENCHMARK_URL must point to the localhost model API.")
 MODEL = os.environ["SPARK_BENCHMARK_MODEL"]
 HASH_MAP_PROMPT = ("Write a detailed step-by-step explanation of how a hash map works, "
                    "including collision handling, resizing, and time complexity. Be thorough.")

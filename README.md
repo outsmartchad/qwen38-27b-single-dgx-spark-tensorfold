@@ -39,7 +39,7 @@ Fresh prompts with zero cached prompt tokens reported and thinking off. The inpu
 
 ## Quick start
 
-Use a single DGX Spark with Docker, NVIDIA Container Toolkit, Python 3, curl and the Hugging Face CLI. The weights and draft need about 20 GB of disk space plus the container image and runtime cache.
+Use a single DGX Spark with Docker, NVIDIA Container Toolkit, Python 3, curl and the Hugging Face CLI. The weights and draft need about 20 GB of disk space plus the container image and runtime cache. Stop other model servers before launching TensorFold.
 
 ```bash
 ./serve.sh download
