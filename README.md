@@ -2,7 +2,7 @@
 
 TensorFold v0.6.0 runs the Vontra MLX 4-bit checkpoint and z-lab DFlash2 draft on one NVIDIA GB10. The TensorFold API binds to `127.0.0.1:8888`.
 
-[Benchmarks](#benchmarks) · [Runtime](#runtime) · [Quick start](#quick-start) · [Raw results](results/benchmark-2026-11-20.json)
+[How the model works](docs/how-it-works.md) · [Quick start](#quick-start) · [Runtime](#runtime) · [Raw results](results/benchmark-2026-11-20.json)
 
 ## Benchmarks
 
